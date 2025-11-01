@@ -1,0 +1,113 @@
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Quote, Star } from "lucide-react";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const testimonials = [
+  {
+    name: "Tanveer Alam",
+    title: "CEO – Syeed & Sons",
+    location: "Pakistan",
+    text: "High Waves Software Solutions delivered exactly what we envisioned, a modern, elegant, and performance-driven website that perfectly represents our textile export brand. Their professionalism and precision truly stand out.",
+  },
+  {
+    name: "Fatima Noor",
+    title: "Founder – BrandWave Studio",
+    location: "United Kingdom",
+    text: "Their expertise in AI chatbot integration gave our marketing agency an edge. The communication was seamless, deadlines were met, and the results exceeded our expectations.",
+  },
+  {
+    name: "Ahmed Khan",
+    title: "Director – Digitora",
+    location: "UAE",
+    text: "We partnered with High Waves for automation and data solutions, and the experience was incredible. Their tech understanding and creative input helped us streamline our operations.",
+  },
+];
+
+const Testimonials = () => {
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Heading animation
+      gsap.from(".testimonial-heading", {
+        opacity: 0,
+        y: 30,
+        duration: 1,
+        scrollTrigger: {
+          trigger: ".testimonial-heading",
+          start: "top 85%",
+        },
+      });
+
+      // Card animation
+      gsap.from(".testimonial-card", {
+        opacity: 1,
+        y: 60,
+        duration: 1,
+        stagger: 0.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+        },
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <section
+      id="testimonials"
+      ref={sectionRef}
+      className="w-full py-20 px-6 md:px-20 bg-primary-bg text-text-primary overflow-hidden"
+    >
+      {/* Heading */}
+      <div className="text-center mb-14 testimonial-heading">
+        <h2 className="text-4xl font-bold mb-2 text-glowBlue">
+          Client Testimonials
+        </h2>
+        <p className="text-gray-400 max-w-2xl mx-auto">
+          What our clients say about working with High Waves Software Solutions.
+        </p>
+      </div>
+
+      {/* Cards */}
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center">
+        {testimonials.map((t, index) => (
+          <div
+            key={index}
+            className="testimonial-card relative bg-[#0B1220]/80 backdrop-blur-md  p-6 flex flex-col justify-between rounded-2xl shadow-[0_0_25px_-8px_#00C6FF]/10 hover:shadow-[0_0_40px_-8px_#00C6FF]/30 transition-all duration-500 border border-[#00C6FF]/10 rounded-2xl  max-w-md"
+          >
+         
+            <p className="text-gray-300 mb-6 italic leading-relaxed">
+              “{t.text}”
+            </p>
+
+            <div className="flex items-center justify-between">
+              <div>
+                <h4 className="font-semibold text-white">{t.name}</h4>
+                <p className="text-sm text-gray-400">
+                  {t.title} — {t.location}
+                </p>
+              </div>
+
+              <div className="flex text-yellow-400">
+                {Array(5)
+                  .fill()
+                  .map((_, i) => (
+                    <Star key={i} size={18} fill="currentColor" />
+                  ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default Testimonials;

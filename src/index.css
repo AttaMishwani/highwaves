@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+
+@theme {
+
+    --color-blue-main: #00C6FF;
+    --color-primary-bg: #0A0F1E;
+    --color-secondary-bg: #161B2E;
+    --color-card-bg: #131B2E;
+    --color-text-primary: #FFFFFF;
+    --color-text-secondary: #B0B8C1;
+    --color-text-blue: #00C6FF;
+    --color-glowBlue: '0 0 20px 2px #00AEEF',
+}
+
+html,body {
+    font-family: "Poppins", sans-serif;
+
+  }
