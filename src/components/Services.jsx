@@ -71,7 +71,7 @@ const Services = () => {
       {/* Services Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-[90%] max-w-6xl">
         {services.map((service, index) => (
-          <div key={index} className="bg-secondary-bg rounded-3xl p-6 ">
+          <div key={index} className="universal-card">
             <div className="w-16 h-16 flex items-center justify-center rounded-2xl bg-gradient-to-br from-[#00AEEF]/10 to-[#00C6FF]/10  mb-4">{service.icon}</div>
             <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
             <p className="text-text-secondary mb-2">{service.description}</p>

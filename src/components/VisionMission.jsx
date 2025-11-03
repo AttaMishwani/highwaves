@@ -44,8 +44,8 @@ const VisionMission = () => {
       {/* Vision & Mission Cards */}
       <div className="w-[100%]  max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-10 mb-16">
         {/* Vision */}
-        <div className="bg-secondary-bg rounded-3xl p-8  relative overflow-hidden group">
-          <div className="absolute -top-10 -right-10 w-32 h-32 bg-glowBlue/20 rounded-full blur-3xl group-hover:blur-[60px] transition-all"></div>
+        <div className="universal-card">
+          {/* <div className="absolute -top-10 -right-10 w-32 h-32 bg-glowBlue/20 rounded-full blur-3xl group-hover:blur-[60px] transition-all"></div> */}
           <Globe2 className="w-12 h-12 text-blue-main mb-4" />
           <h3 className="text-2xl font-semibold mb-3">Vision</h3>
           <p className="text-text-secondary leading-relaxed">
@@ -61,7 +61,7 @@ const VisionMission = () => {
         </div>
 
         {/* Mission */}
-        <div className="bg-secondary-bg rounded-3xl p-8  relative overflow-hidden group">
+        <div className="universal-card">
           <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-glowBlue/20 rounded-full blur-3xl group-hover:blur-[60px] transition-all"></div>
           <Rocket className="w-12 h-12 text-blue-main mb-4" />
           <h3 className="text-2xl font-semibold mb-3">Mission</h3>
@@ -78,7 +78,7 @@ const VisionMission = () => {
       </div>
 
       {/* Core Values */}
-      <div className="w-[100%] max-w-6xl bg-secondary-bg rounded-3xl p-10  relative overflow-hidden">
+      <div className="w-[100%] max-w-6xl universal-card relative">
         <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-48 h-48 bg-glowBlue/20 rounded-full blur-3xl"></div>
         <div className="text-center mb-8">
           <Gem className="w-12 h-12 text-blue-main mx-auto mb-4" />
@@ -93,7 +93,7 @@ const VisionMission = () => {
           {coreValues.map((value, index) => (
             <div
               key={index}
-              className="bg-primary-bg/60 rounded-2xl p-6 hover:bg-primary-bg/80 hover:shadow-[0_0_25px_-10px_#00AEEF] transition-all duration-300"
+              className="universal-card"
             >
               <h4 className="text-xl font-semibold text-glowBlue mb-2">
                 {value.title}

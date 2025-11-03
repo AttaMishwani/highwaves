@@ -12,7 +12,12 @@
     --color-text-blue: #00C6FF;
     --color-glowBlue: '0 0 20px 2px #00AEEF',
 }
-
+@layer components {
+    .universal-card {
+      @apply bg-[#0E1625b3] border border-[#00AEEF33] p-8 rounded-2xl shadow-[0_0_25px_-10px_#00AEEF30] hover:shadow-[0_0_35px_-6px_#00AEEF70] transition-all duration-500;
+    }
+  }
+  
 html,body {
     font-family: "Poppins", sans-serif;
 
