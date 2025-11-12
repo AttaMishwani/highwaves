@@ -67,11 +67,13 @@ const Testimonials = () => {
     >
       {/* Heading */}
       <div className="text-center mb-14 testimonial-heading">
-        <h2 className="text-4xl font-bold mb-2 text-glowBlue">
-          Client Testimonials
+    
+        <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#00AEEF] to-[#00C6FF] bg-clip-text text-transparent">
+        Client Testimonials
         </h2>
-        <p className="text-gray-400 max-w-2xl mx-auto">
-          What our clients say about working with High Waves Software Solutions.
+ 
+        <p className="text-gray-400 max-w-3xl mx-auto text-lg">
+        What our clients say about working with High Waves Software Solutions.
         </p>
       </div>
 

@@ -10,6 +10,7 @@ import Testimonials from "./components/Testimonials";
 import VisionMission from "./components/VisionMission";
 import WhyChooseUs from "./components/WhyChooseUs";
 import TechStack from "./components/TechStack";
+import GlobalReach from "./components/GlobalReach";
 
 function App() {
   return (
@@ -18,11 +19,12 @@ function App() {
       <Home />
       <FounderSection />
       <VisionMission />
+      <Services />
       <Portfolio />
       <TechStack />
-      <Services />
-      <WhyChooseUs />
       <Testimonials />
+      <WhyChooseUs />
+      <GlobalReach />
       <Footer />
     </main>
   );
