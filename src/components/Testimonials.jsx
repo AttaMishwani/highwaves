@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Quote, Star } from "lucide-react";
+import { Star } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -44,7 +44,7 @@ const Testimonials = () => {
 
       // Card animation
       gsap.from(".testimonial-card", {
-        opacity: 1,
+        opacity: 0,
         y: 60,
         duration: 1,
         stagger: 0.2,
@@ -67,13 +67,12 @@ const Testimonials = () => {
     >
       {/* Heading */}
       <div className="text-center mb-14 testimonial-heading">
-    
         <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#00AEEF] to-[#00C6FF] bg-clip-text text-transparent">
-        Client Testimonials
+          Client Testimonials
         </h2>
- 
+
         <p className="text-gray-400 max-w-3xl mx-auto text-lg">
-        What our clients say about working with High Waves Software Solutions.
+          What our clients say about working with High Waves Software Solutions.
         </p>
       </div>
 
@@ -82,9 +81,8 @@ const Testimonials = () => {
         {testimonials.map((t, index) => (
           <div
             key={index}
-            className="testimonial-card relative bg-[#0B1220]/80 backdrop-blur-md  p-6 flex flex-col justify-between rounded-2xl shadow-[0_0_25px_-8px_#00C6FF]/10 hover:shadow-[0_0_40px_-8px_#00C6FF]/30 transition-all duration-500 border border-[#00C6FF]/10 rounded-2xl  max-w-md"
+            className="testimonial-card relative bg-[#0B1220]/80 backdrop-blur-md p-6 flex flex-col justify-between rounded-2xl shadow-[0_0_25px_-8px_#00C6FF]/10 hover:shadow-[0_0_40px_-8px_#00C6FF]/30 transition-all duration-500 border border-[#00C6FF]/10 max-w-md"
           >
-         
             <p className="text-gray-300 mb-6 italic leading-relaxed">
               “{t.text}”
             </p>

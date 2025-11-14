@@ -3,10 +3,9 @@ import { Mail, Phone, MapPin, QrCode } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="relative  text-white py-16 px-6 md:px-12 lg:px-20 font-[Poppins] mt-30">
+    <footer className="relative text-white py-16 px-6 sm:px-12 lg:px-20 font-[Poppins] mt-30 ">
       {/* Background glow */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-[#00AEEF]/20 blur-[120px] rounded-full"></div>
-  
 
       <div className="relative z-10 max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
         {/* Contact Info */}
@@ -24,7 +23,7 @@ const Footer = () => {
               <Mail size={20} className="text-[#00C6FF]" />
               <a
                 href="mailto:highwavessoftwaresolutions@gmail.com"
-                className="hover:text-[#00C6FF] transition-colors"
+                className="hover:text-[#00C6FF] transition-colors break-words"
               >
                 highwavessoftwaresolutions@gmail.com
               </a>
@@ -43,7 +42,7 @@ const Footer = () => {
           </ul>
 
           {/* QR Code */}
-          <div className="mt-8 flex items-center gap-4">
+          <div className="mt-8 flex items-center gap-4 flex-wrap sm:flex-nowrap">
             <QrCode size={42} className="text-[#00C6FF]" />
             <div>
               <p className="text-sm text-gray-400">Scan to Connect</p>
@@ -51,7 +50,7 @@ const Footer = () => {
                 href="https://wa.me/923112103355"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#00C6FF] text-sm hover:underline"
+                className="text-[#00C6FF] text-sm hover:underline break-words"
               >
                 WhatsApp QR Link
               </a>
@@ -60,7 +59,7 @@ const Footer = () => {
         </div>
 
         {/* Thank You / Message */}
-        <div className="md:text-right text-gray-300 flex flex-col justify-center">
+        <div className="md:text-right text-gray-300 flex flex-col justify-center mt-10 md:mt-0">
           <h3 className="text-2xl font-semibold mb-3 text-white">
             Thank You
           </h3>

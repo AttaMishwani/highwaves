@@ -53,35 +53,50 @@ const services = [
 
 const Services = () => {
   return (
-    <section
-      id="services"
-      className="w-full py-20 bg-primary-bg text-white flex flex-col items-center"
-    >
-      {/* Section Header */}
-      <div className="text-center max-w-2xl mb-12">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-glowBlue">
-          Our Services
-        </h2>
-        <p className="text-text-secondary text-lg">
-          We offer a full suite of digital services designed to power business
-          transformation and drive measurable growth.
-        </p>
-      </div>
+<section
+  id="services"
+  className="w-full py-16 md:py-20 bg-primary-bg text-white flex flex-col items-center"
+>
+  {/* Section Header */}
+  <div className="text-center max-w-2xl mb-10 px-4">
+    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 text-[#00C6FF]">
+      Our Services
+    </h2>
+    <p className="text-text-secondary text-base sm:text-lg">
+      We offer a full suite of digital services designed to power business
+      transformation and drive measurable growth.
+    </p>
+  </div>
 
-      {/* Services Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-[90%] max-w-6xl">
-        {services.map((service, index) => (
-          <div key={index} className="universal-card">
-            <div className="w-16 h-16 flex items-center justify-center rounded-2xl bg-gradient-to-br from-[#00AEEF]/10 to-[#00C6FF]/10  mb-4">{service.icon}</div>
-            <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-            <p className="text-text-secondary mb-2">{service.description}</p>
-            {service.tech && (
-              <p className="text-sm text-glowBlue/80 italic">{service.tech}</p>
-            )}
-          </div>
-        ))}
+  {/* Services Grid */}
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 w-[90%] max-w-6xl">
+    {services.map((service, index) => (
+      <div
+        key={index}
+        className="universal-card p-5 sm:p-6 rounded-xl"
+      >
+        <div className="w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center rounded-2xl bg-gradient-to-br from-[#00AEEF]/10 to-[#00C6FF]/10 mb-4">
+          {service.icon}
+        </div>
+
+        <h3 className="text-lg sm:text-xl font-semibold mb-2 leading-tight">
+          {service.title}
+        </h3>
+
+        <p className="text-text-secondary text-sm sm:text-base mb-2">
+          {service.description}
+        </p>
+
+        {service.tech && (
+          <p className="text-xs sm:text-sm text-glowBlue/80 italic">
+            {service.tech}
+          </p>
+        )}
       </div>
-    </section>
+    ))}
+  </div>
+</section>
+
   );
 };
 

@@ -6,7 +6,6 @@ import {
   Users,
   HeartHandshake,
   Globe2,
-  Cpu,
 } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -72,37 +71,39 @@ const WhyChooseUs = () => {
     <section
       ref={sectionRef}
       id="why-us"
-      className="relative w-full max-w-[1200px] mx-auto py-24  md:px-12 text-white  "
+      className="relative w-full py-24 bg-primary-bg text-white"
     >
-      {/* Decorative glowing background */}
-      <div className="absolute top-0 left-0 w-[300px] h-[300px] bg-[#00AEEF]/20 blur-[120px] rounded-full"></div>
+      {/* Decorative glowing backgrounds */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[300px] h-[300px] bg-[#00AEEF]/20 blur-[120px] rounded-full"></div>
       <div className="absolute bottom-0 right-0 w-[250px] h-[250px] bg-[#00C6FF]/20 blur-[100px] rounded-full"></div>
 
-      <div className="relative z-10 w-full mx-auto text-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
         {/* Section Title */}
-        <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#00AEEF] to-[#00C6FF] bg-clip-text text-transparent">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#00AEEF] to-[#00C6FF] bg-clip-text text-transparent">
           Why Choose Us
         </h2>
-        <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-16">
+        <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto mb-16">
           Partner with High Waves Software Solutions and experience innovation,
           reliability, and growth — all in one place.
         </p>
 
         {/* Feature Cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid gap-6 sm:gap-8 lg:gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {points.map((item, index) => (
             <div
               key={index}
-              className="why-card bg-[#0B1220]/80 backdrop-blur-md border border-[#00C6FF]/10 rounded-2xl p-8 text-center shadow-[0_0_25px_-8px_#00C6FF]/10 hover:shadow-[0_0_40px_-8px_#00C6FF]/30 transition-all duration-500 hover:-translate-y-2"
+              className="why-card bg-[#0B1220]/80 backdrop-blur-md border border-[#00C6FF]/10 rounded-2xl p-6 sm:p-8 text-center shadow-[0_0_25px_-8px_#00C6FF]/10 hover:shadow-[0_0_40px_-8px_#00C6FF]/30 transition-all duration-500 hover:-translate-y-2"
             >
               <div className="flex flex-col items-center space-y-4">
-                <div className="w-16 h-16 flex items-center justify-center rounded-2xl bg-gradient-to-br from-[#00AEEF]/10 to-[#00C6FF]/10 ">
+                <div className="w-16 h-16 flex items-center justify-center rounded-2xl bg-gradient-to-br from-[#00AEEF]/10 to-[#00C6FF]/10">
                   {item.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-white">
+                <h3 className="text-lg sm:text-xl font-semibold text-white">
                   {item.title}
                 </h3>
-                <p className="text-gray-400 leading-relaxed">{item.desc}</p>
+                <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
+                  {item.desc}
+                </p>
               </div>
             </div>
           ))}

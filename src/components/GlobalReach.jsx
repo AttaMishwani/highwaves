@@ -1,3 +1,4 @@
+// GlobalReach.jsx
 import React from "react";
 import FlowingMenu from "../animation/FlowingMenu";
 
@@ -12,7 +13,7 @@ const GlobalReach = () => {
   ];
 
   return (
-    <section className="relative text-white py-24 px-6 md:px-12 lg:px-20 font-[Poppins] overflow-hidden">
+    <section className="relative text-white py-24 px-6 sm:px-12 lg:px-20 font-[Poppins] overflow-hidden">
       <div className="relative z-10 text-center mb-16">
         <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#00AEEF] to-[#00C6FF] bg-clip-text text-transparent">
           Global Reach
@@ -22,15 +23,7 @@ const GlobalReach = () => {
         </p>
       </div>
 
-      <div
-        style={{
-          height: "600px",
-          position: "relative",
-          borderRadius: "1rem",
-          overflow: "hidden",
-        }}
-        className="relative z-10"
-      >
+      <div className="relative z-10 w-full">
         <FlowingMenu items={countries} />
       </div>
     </section>

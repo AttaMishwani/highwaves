@@ -1,10 +1,11 @@
+// FlowingMenu.jsx
 import React from "react";
 import { gsap } from "gsap";
 
 function FlowingMenu({ items = [] }) {
   return (
-    <div className="w-full h-full overflow-hidden">
-      <nav className="flex flex-col h-full m-0 p-0">
+    <div className="w-full h-[600px] md:h-[500px] sm:h-[400px] overflow-hidden relative">
+      <nav className="flex flex-col h-full justify-center m-0 p-0 w-full">
         {items.map((item, idx) => (
           <MenuItem key={idx} {...item} />
         ))}
@@ -49,6 +50,14 @@ function MenuItem({ link, text, image }) {
       .to(marqueeInnerRef.current, { y: edge === "top" ? "101%" : "-101%" });
   };
 
+  const handleClick = (ev) => {
+    // Prevent anchor jump on mobile/tablet
+    if (window.innerWidth < 1024) {
+      ev.preventDefault();
+      handleMouseEnter(ev);
+    }
+  };
+
   const repeatedMarqueeContent = Array.from({ length: 4 }).map((_, idx) => (
     <React.Fragment key={idx}>
       <span className="text-white uppercase font-normal text-[4vh] leading-[1.2] p-[1vh_1vw_0]">
@@ -62,12 +71,16 @@ function MenuItem({ link, text, image }) {
   ));
 
   return (
-    <div className="flex-1 relative overflow-hidden text-center shadow-[0_-1px_0_0_#fff]" ref={itemRef}>
+    <div
+      className="flex-1 relative overflow-hidden text-center w-full h-full"
+      ref={itemRef}
+    >
       <a
-        className="flex items-center justify-center h-full relative cursor-pointer uppercase no-underline font-semibold text-white text-[4vh] hover:text-white"
+        className="flex items-center justify-center h-full relative cursor-pointer uppercase no-underline font-semibold text-white text-[4vh] hover:text-white w-full"
         href={link}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
+        onClick={handleClick}
       >
         {text}
       </a>

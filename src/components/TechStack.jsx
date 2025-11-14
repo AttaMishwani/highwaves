@@ -81,7 +81,7 @@ const TechStack = () => {
       <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#00C6FF]/20 blur-[150px] rounded-full"></div>
 
       <div className="relative z-10 max-w-6xl mx-auto text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#00AEEF] to-[#00C6FF] bg-clip-text text-transparent">
+        <h2 className="text-4xl md:text-5xl font-bold mb-6  text-[#00C6FF]  ">
           Technology Stack
         </h2>
         <p className="text-gray-400 text-lg max-w-2xl mx-auto">
