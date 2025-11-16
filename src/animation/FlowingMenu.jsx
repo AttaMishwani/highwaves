@@ -1,4 +1,3 @@
-// FlowingMenu.jsx
 import React from "react";
 import { gsap } from "gsap";
 
@@ -51,7 +50,6 @@ function MenuItem({ link, text, image }) {
   };
 
   const handleClick = (ev) => {
-    // Prevent anchor jump on mobile/tablet
     if (window.innerWidth < 1024) {
       ev.preventDefault();
       handleMouseEnter(ev);
@@ -60,7 +58,7 @@ function MenuItem({ link, text, image }) {
 
   const repeatedMarqueeContent = Array.from({ length: 4 }).map((_, idx) => (
     <React.Fragment key={idx}>
-      <span className="text-white uppercase font-normal text-[4vh] leading-[1.2] p-[1vh_1vw_0]">
+      <span className="text-white uppercase font-normal text-[4vh] sm:text-[3.5vh] xs:text-[3vh] leading-[1.2] p-[1vh_1vw_0]">
         {text}
       </span>
       <div
@@ -76,7 +74,7 @@ function MenuItem({ link, text, image }) {
       ref={itemRef}
     >
       <a
-        className="flex items-center justify-center h-full relative cursor-pointer uppercase no-underline font-semibold text-white text-[4vh] hover:text-white w-full"
+        className="flex items-center justify-center h-full relative cursor-pointer uppercase no-underline font-semibold text-white text-[4vh] sm:text-[3.5vh] xs:text-[3vh] hover:text-white w-full"
         href={link}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}

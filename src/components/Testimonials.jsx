@@ -1,9 +1,5 @@
-import React, { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React from "react";
 import { Star } from "lucide-react";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const testimonials = [
   {
@@ -27,46 +23,13 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Heading animation
-      gsap.from(".testimonial-heading", {
-        opacity: 0,
-        y: 30,
-        duration: 1,
-        scrollTrigger: {
-          trigger: ".testimonial-heading",
-          start: "top 85%",
-        },
-      });
-
-      // Card animation
-      gsap.from(".testimonial-card", {
-        opacity: 0,
-        y: 60,
-        duration: 1,
-        stagger: 0.2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-        },
-      });
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
     <section
       id="testimonials"
-      ref={sectionRef}
-      className="w-full py-20 px-6 md:px-20 bg-primary-bg text-text-primary overflow-hidden"
+      className="w-full py-20 px-6 md:px-20 text-white overflow-hidden"
     >
       {/* Heading */}
-      <div className="text-center mb-14 testimonial-heading">
+      <div className="text-center mb-14">
         <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#00AEEF] to-[#00C6FF] bg-clip-text text-transparent">
           Client Testimonials
         </h2>
@@ -78,20 +41,20 @@ const Testimonials = () => {
 
       {/* Cards */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center">
-        {testimonials.map((t, index) => (
+        {testimonials.map((item, index) => (
           <div
             key={index}
             className="testimonial-card relative bg-[#0B1220]/80 backdrop-blur-md p-6 flex flex-col justify-between rounded-2xl shadow-[0_0_25px_-8px_#00C6FF]/10 hover:shadow-[0_0_40px_-8px_#00C6FF]/30 transition-all duration-500 border border-[#00C6FF]/10 max-w-md"
           >
             <p className="text-gray-300 mb-6 italic leading-relaxed">
-              “{t.text}”
+              “{item.text}”
             </p>
 
             <div className="flex items-center justify-between">
               <div>
-                <h4 className="font-semibold text-white">{t.name}</h4>
+                <h4 className="font-semibold text-white">{item.name}</h4>
                 <p className="text-sm text-gray-400">
-                  {t.title} — {t.location}
+                  {item.title} — {item.location}
                 </p>
               </div>
 
