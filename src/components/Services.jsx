@@ -59,7 +59,7 @@ const Services = () => {
 >
   {/* Section Header */}
   <div className="text-center max-w-2xl mb-10 px-4">
-    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 text-[#00C6FF]">
+    <h2 className="text-4xl md:text-5xl font-bold text-[#00C6FF] mb-4">
       Our Services
     </h2>
     <p className="text-text-secondary text-base sm:text-lg">

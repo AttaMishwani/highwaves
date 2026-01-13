@@ -13,7 +13,7 @@ function FlowingMenu({ items = [] }) {
   );
 }
 
-function MenuItem({ link, text, image }) {
+function MenuItem({ text, image }) {
   const itemRef = React.useRef(null);
   const marqueeRef = React.useRef(null);
   const marqueeInnerRef = React.useRef(null);
@@ -29,7 +29,12 @@ function MenuItem({ link, text, image }) {
   const handleMouseEnter = (ev) => {
     if (!itemRef.current || !marqueeRef.current || !marqueeInnerRef.current) return;
     const rect = itemRef.current.getBoundingClientRect();
-    const edge = findClosestEdge(ev.clientX - rect.left, ev.clientY - rect.top, rect.width, rect.height);
+    const edge = findClosestEdge(
+      ev.clientX - rect.left,
+      ev.clientY - rect.top,
+      rect.width,
+      rect.height
+    );
 
     gsap
       .timeline({ defaults: animationDefaults })
@@ -41,19 +46,17 @@ function MenuItem({ link, text, image }) {
   const handleMouseLeave = (ev) => {
     if (!itemRef.current || !marqueeRef.current || !marqueeInnerRef.current) return;
     const rect = itemRef.current.getBoundingClientRect();
-    const edge = findClosestEdge(ev.clientX - rect.left, ev.clientY - rect.top, rect.width, rect.height);
+    const edge = findClosestEdge(
+      ev.clientX - rect.left,
+      ev.clientY - rect.top,
+      rect.width,
+      rect.height
+    );
 
     gsap
       .timeline({ defaults: animationDefaults })
       .to(marqueeRef.current, { y: edge === "top" ? "-101%" : "101%" })
       .to(marqueeInnerRef.current, { y: edge === "top" ? "101%" : "-101%" });
-  };
-
-  const handleClick = (ev) => {
-    if (window.innerWidth < 1024) {
-      ev.preventDefault();
-      handleMouseEnter(ev);
-    }
   };
 
   const repeatedMarqueeContent = Array.from({ length: 4 }).map((_, idx) => (
@@ -70,24 +73,23 @@ function MenuItem({ link, text, image }) {
 
   return (
     <div
-      className="flex-1 relative overflow-hidden text-center w-full h-full"
       ref={itemRef}
+      className="flex-1 relative overflow-hidden text-center w-full h-full"
     >
-      <a
-        className="flex items-center justify-center h-full relative cursor-pointer uppercase no-underline font-semibold text-white text-[4vh] sm:text-[3.5vh] xs:text-[3vh] hover:text-white w-full"
-        href={link}
+      <button
+        type="button"
+        className="flex items-center justify-center h-full relative cursor-pointer uppercase font-semibold text-white text-[4vh] sm:text-[3.5vh] xs:text-[3vh] w-full bg-transparent border-none"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        onClick={handleClick}
       >
         {text}
-      </a>
+      </button>
 
       <div
-        className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none bg-[#0A2235] translate-y-[101%]"
         ref={marqueeRef}
+        className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none bg-[#0A2235] translate-y-[101%]"
       >
-        <div className="h-full w-[200%] flex" ref={marqueeInnerRef}>
+        <div ref={marqueeInnerRef} className="h-full w-[200%] flex">
           <div className="flex items-center relative h-full w-[200%] will-change-transform animate-marquee">
             {repeatedMarqueeContent}
           </div>
@@ -96,5 +98,6 @@ function MenuItem({ link, text, image }) {
     </div>
   );
 }
+
 
 export default FlowingMenu;

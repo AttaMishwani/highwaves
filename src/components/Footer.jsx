@@ -3,11 +3,12 @@ import { Mail, Phone, MapPin, QrCode } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="relative text-white py-16 px-4 sm:px-12 lg:px-20 font-[Poppins] mt-30">
+    <footer id="contact" className="relative text-white py-16 px-4 sm:px-12 lg:px-20 font-[Poppins] mt-30">
       {/* Background glow */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-[#00AEEF]/20 blur-[120px] rounded-full"></div>
 
       <div className="relative z-10 max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
+        
         {/* Contact Info */}
         <div className="w-full">
           <h3 className="text-2xl sm:text-3xl font-bold mb-6 bg-gradient-to-r from-[#00AEEF] to-[#00C6FF] bg-clip-text text-transparent">
@@ -19,6 +20,7 @@ const Footer = () => {
               <MapPin size={20} className="text-[#00C6FF] flex-shrink-0" />
               <span>Karachi, Pakistan</span>
             </li>
+
             <li className="flex items-start gap-3 break-words">
               <Mail size={20} className="text-[#00C6FF] flex-shrink-0" />
               <a
@@ -28,6 +30,7 @@ const Footer = () => {
                 highwavessoftwaresolutions@gmail.com
               </a>
             </li>
+
             <li className="flex items-start gap-3 break-words">
               <Phone size={20} className="text-[#00C6FF] flex-shrink-0" />
               <a
@@ -58,29 +61,48 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Thank You / Message */}
-        <div className="md:text-right text-gray-300 flex flex-col justify-center mt-10 md:mt-0 text-sm sm:text-base break-words">
-          <h3 className="text-xl sm:text-2xl font-semibold mb-3 text-white break-words">
-            Thank You
+        {/* Contact Form */}
+        <div className="w-full">
+          <h3 className="text-xl sm:text-2xl font-semibold mb-4 text-white">
+            Quick Message
           </h3>
-          <p className="text-gray-400 leading-relaxed break-words">
-            Thank you for exploring our portfolio.
-            <br />
-            At <span className="text-[#00C6FF] font-medium break-words">
-              High Waves Software Solutions
-            </span>
-            , we believe every partnership begins with trust — and grows with
-            innovation.
-          </p>
-          <p className="mt-4 italic text-[#00C6FF] break-words">
-            Let’s ride the digital wave together toward limitless possibilities.
-          </p>
+
+          <form className="space-y-4">
+            <input
+              type="text"
+              placeholder="Your Name"
+              className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-[#00C6FF]"
+            />
+
+            <input
+              type="email"
+              placeholder="Your Email"
+              className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-[#00C6FF]"
+            />
+
+            <textarea
+              rows="4"
+              placeholder="Your Message"
+              className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white text-sm resize-none focus:outline-none focus:border-[#00C6FF]"
+            ></textarea>
+
+            <button
+              type="submit"
+              className="w-full px-4 py-3 rounded-lg bg-[#00C6FF] text-black text-sm font-medium hover:bg-white transition"
+            >
+              Send Message
+            </button>
+          </form>
         </div>
       </div>
 
       {/* Divider */}
       <div className="relative z-10 border-t border-[#1a2438] mt-16 pt-6 text-center text-xs sm:text-sm text-gray-500 break-words">
-        © 2025 <span className="text-[#00C6FF]">High Waves Software Solutions</span> – All Rights Reserved
+        © 2025{" "}
+        <span className="text-[#00C6FF]">
+          High Waves Software Solutions
+        </span>{" "}
+        – All Rights Reserved
       </div>
     </footer>
   );

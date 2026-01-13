@@ -9,44 +9,38 @@ const projects = [
   {
     name: "Syeed & Sons",
     industry: "Textile Export & Manufacturing",
-    image:
-      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=80",
-    link: "#",
+    image: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c",
+    link: "https://syeedandsons.com",
   },
   {
     name: "Pak Safety Academy",
     industry: "Occupational Safety & Industrial Training",
-    image:
-      "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&w=800&q=80",
-    link: "http://paksafetyacademy.com/",
+    image: "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1",
+    link: "https://paksafetyacademy.com",
+  },
+  {
+    name: "Any Landscaping",
+    industry: "Landscape Design & Maintenance",
+    image: "https://images.unsplash.com/photo-1592928302636-c83cf1e1c887",
+    link: "https://anylandscaping.com",
   },
   {
     name: "Digitora",
-    industry: "Digital Marketing & Branding",
-    image:
-      "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=800&q=80",
-    link: "https://digitora.site/",
+    industry: "Digital Marketing & Branding Agency",
+    image: "https://images.unsplash.com/photo-1556761175-4b46a572b786",
+    link: "https://digitora.site",
   },
   {
     name: "KC Premier Living",
     industry: "Real Estate & Property Management",
-    image:
-      "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=800&q=80",
-    link: "#",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    link: "https://kcpremierliving.com",
   },
   {
     name: "Finance Centre",
     industry: "Financial Consultancy & Services",
-    image:
-      "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80",
-    link: "#",
-  },
-  {
-    name: "Arkedia Consulting",
-    industry: "Business Strategy & IT Solutions",
-    image:
-      "https://images.unsplash.com/photo-1551836022-4c4c79ecde51?auto=format&fit=crop&w=800&q=80",
-    link: "http://arkedia.co.uk/",
+    image: "https://images.unsplash.com/photo-1521791136064-7986c2920216",
+    link: "https://financecentre.us",
   },
 ];
 
@@ -54,22 +48,18 @@ const Portfolio = () => {
   const sectionRef = useRef(null);
 
   useEffect(() => {
-    const cards = sectionRef.current.querySelectorAll(".portfolio-card");
-
-    if (!cards.length) return;
-
     gsap.fromTo(
-      cards,
+      ".portfolio-card",
       { opacity: 0, y: 40 },
       {
         opacity: 1,
         y: 0,
-        duration: 0.8,
-        stagger: 0.15,
+        duration: 0.9,
+        stagger: 0.12,
         ease: "power3.out",
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 85%",
+          start: "top 80%",
         },
       }
     );
@@ -79,79 +69,53 @@ const Portfolio = () => {
     <section
       ref={sectionRef}
       id="portfolio"
-      className="relative py-20 sm:py-24 px-4 sm:px-6 md:px-12 lg:px-20 text-white"
+      className="relative py-24 px-4 sm:px-6 lg:px-20 text-white"
     >
-      <div className="text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#00AEEF] to-[#00C6FF] bg-clip-text text-transparent mb-4">
+      {/* Header */}
+      <div className="text-center mb-14">
+        <h2 className="text-4xl md:text-5xl font-bold text-[#00C6FF] mb-4">
           Portfolio Showcase
         </h2>
-        <p className="text-gray-400 text-lg max-w-3xl mx-auto">
-          Discover a selection of our latest projects — crafted with precision and innovation.
+        <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+          Selected projects delivered with strategy, performance, and precision.
         </p>
       </div>
 
-      {/* Custom Grid */}
-      <div
-        className="grid gap-4 sm:gap-5"
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(5, 1fr)",
-          gridAutoRows: "200px",
-        }}
-      >
+      {/* Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((proj, index) => (
           <div
             key={index}
-            className="portfolio-card relative overflow-hidden rounded-2xl group"
-            style={{
-              gridColumn: index === 0 || index === 3 || index === 5 ? "span 3" : "span 2",
-              gridRow: index === 0 || index === 2 || index === 4 || index === 5 ? "span 2" : "span 3",
-            }}
+            className="universal-card"
           >
-            <img
-              src={proj.image}
-              alt={proj.name}
-              className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
-            />
+            {/* Image box */}
+            <div className="h-52 w-full overflow-hidden ">
+              <img
+                src={proj.image}
+                alt={proj.name}
+                className="h-full w-full rounded-md"
+                loading="lazy"
+              />
+            </div>
 
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent translate-y-full group-hover:translate-y-0 transition-all duration-500"></div>
+            {/* Text below */}
+            <div className="mt-5">
+              <h3 className="text-xl font-semibold mb-1">{proj.name}</h3>
+              <p className="text-gray-300 text-sm mb-5">{proj.industry}</p>
 
-            <div className="absolute bottom-4 left-4 right-4">
-              <h3 className="text-xl font-semibold">{proj.name}</h3>
-              <p className="text-gray-400 text-sm mb-3">{proj.industry}</p>
+              {/* Button */}
               <a
                 href={proj.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[#00C6FF] hover:text-white"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-[#00C6FF] text-sm font-medium hover:bg-[#00C6FF]  transition"
               >
-                Visit Site <ExternalLink size={18} />
+                Visit Website <ExternalLink size={16} />
               </a>
             </div>
           </div>
         ))}
       </div>
-
-      {/* Responsive Fix */}
-      <style>{`
-        @media (max-width: 1024px) {
-          #portfolio .portfolio-card {
-            grid-column: span 1 !important;
-            grid-row: span 1 !important;
-          }
-          #portfolio .grid {
-            grid-template-columns: repeat(2, 1fr) !important;
-            grid-auto-rows: 240px !important;
-          }
-        }
-
-        @media (max-width: 640px) {
-          #portfolio .grid {
-            grid-template-columns: 1fr !important;
-            grid-auto-rows: 220px !important;
-          }
-        }
-      `}</style>
     </section>
   );
 };

@@ -49,6 +49,7 @@ const FounderSection = () => {
   return (
     <section
     ref={sectionRef}
+    id="about"
     className="relative w-full py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-12 lg:px-20 text-white"
   >
     {/* Glowing background orbs */}
