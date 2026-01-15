@@ -1,22 +1,19 @@
-
 {
   "homepage": "https://AttaMishwani.github.io/highwaves",
   "name": "highwaves",
-
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-"deploy": "gh-pages -d dist"
-
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@studio-freight/lenis": "^1.0.42",
     "@tailwindcss/vite": "^4.1.16",
     "gsap": "^3.13.0",
     "lucide": "^0.547.1",

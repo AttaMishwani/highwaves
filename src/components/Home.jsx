@@ -92,53 +92,79 @@ const Home = () => {
             items-center
           "
         >
-          {/* Primary Button */}
-          <button
-            className="
-              bg-blue-main 
-              text-white 
-              px-6 
-              py-3 
-              rounded-xl 
-              font-medium 
-              shadow-[0_0_15px_#007BFF] 
-              hover:bg-gradient-to-r 
-              hover:from-[#007BFF] 
-              hover:to-[#00c6ff] 
-              hover:shadow-[0_0_25px_#00C6FF] 
-              transition-all 
-              duration-300
-              w-full
-              cursor-pointer
-              sm:w-auto
-              text-[clamp(0.9rem,1.8vw,1rem)]
-            "
-          >
-            Get a Free Consultation
-          </button>
+        <button
+  className="
+    relative overflow-hidden
+    bg-blue-main 
+    text-white 
+    px-6 
+    py-3 
+    rounded-xl 
+    font-medium 
+    shadow-[0_0_15px_#007BFF] 
+    transition-all 
+    duration-300
+    w-full
+    sm:w-auto
+    cursor-pointer
+    text-[clamp(0.9rem,1.8vw,1rem)]
+    hover:-translate-y-1
+    hover:shadow-[0_12px_30px_rgba(0,198,255,0.55)]
+  "
+>
+  {/* light sweep */}
+  <span
+    className="
+      pointer-events-none
+      absolute inset-0
+      -translate-x-full
+      bg-gradient-to-r
+      from-transparent
+      via-white/30
+      to-transparent
+      hover:translate-x-full
+      transition-transform
+      duration-700
+    "
+  />
+  Get a Free Consultation
+</button>
 
-          {/* Secondary Button */}
-          <button
-            className="
-              border 
-              border-white 
-              text-white 
-              px-6 
-              py-3 
-              rounded-xl 
-              font-medium 
-              hover:text-[#00AEEF] 
-              hover:border-[#00AEEF] 
-              transition-all 
-              duration-300
-              w-full
-              cursor-pointer
-              sm:w-auto
-              text-[clamp(0.9rem,1.8vw,1rem)]
-            "
-          >
-            View Portfolio
-          </button>
+<button
+  className="
+    relative
+    border 
+    border-white/60
+    text-white 
+    px-6 
+    py-3 
+    rounded-xl 
+    font-medium 
+    transition-all 
+    duration-300
+    w-full
+    sm:w-auto
+    cursor-pointer
+    text-[clamp(0.9rem,1.8vw,1rem)]
+    hover:text-[#00AEEF]
+    hover:border-[#00AEEF]
+  "
+>
+  {/* underline animation */}
+  <span
+    className="
+      absolute left-1/2 -bottom-[2px]
+      h-[2px] w-0
+      bg-[#00AEEF]
+      transition-all duration-300
+      hover:w-full
+      hover:left-0
+    "
+  />
+  View Portfolio
+</button>
+
+
         </div>
       </div>
     </section>

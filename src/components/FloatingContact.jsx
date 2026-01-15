@@ -92,7 +92,7 @@ const FloatingContact = () => {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="h-14 w-14 rounded-2xl bg-[#00C6FF] text-black shadow-lg hover:scale-105 transition flex items-center justify-center"
+        className="h-14 w-14 rounded-2xl bg-[#00C6FF] text-[#F7F7F7] shadow-lg hover:scale-105 transition flex items-center justify-center"
         aria-label="Open contact menu"
       >
         <MessageCircle size={22} />

@@ -3,7 +3,7 @@
 
 @theme {
 
-    --color-blue-main: #354EF0;
+    --color-blue-main: #00BAF7;
     --color-primary-bg: #0A0F1E;
     --color-secondary-bg: #161B2E;
     --color-card-bg: #131B2E;
@@ -29,7 +29,7 @@
 html,body {
     font-family: "Poppins", sans-serif;
     overflow-x: hidden;
- scroll-behavior: smooth;
+
   }
 
 
