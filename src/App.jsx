@@ -11,14 +11,17 @@ import VisionMission from "./components/VisionMission";
 import WhyChooseUs from "./components/WhyChooseUs";
 import TechStack from "./components/TechStack";
 import GlobalReach from "./components/GlobalReach";
+import FloatingContact from "./components/FloatingContact";
+import ServicePreview from "./components/Servicepreview";
 
 function App() {
   return (
-    <main className="bg-primary-bg w-full h-full">
+    <main className="bg-site w-full h-full">
       <Navbar />
       <Home />
       <FounderSection />
       <VisionMission />
+      <ServicePreview/>
       <Services />
       <Portfolio />
       <TechStack />
@@ -26,6 +29,7 @@ function App() {
       <WhyChooseUs />
       <GlobalReach />
       <Footer />
+      <FloatingContact/>
     </main>
   );
 }

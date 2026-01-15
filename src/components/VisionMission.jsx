@@ -29,7 +29,7 @@ const VisionMission = () => {
   return (
     <section
     id="vision-mission"
-    className="w-full max-w-[1200px] mx-auto py-14 sm:py-16 md:py-20 px-4 sm:px-6 bg-primary-bg text-white flex flex-col items-center"
+    className="w-full max-w-[1200px] mx-auto py-14 sm:py-16 md:py-20 px-4 sm:px-6  text-white flex flex-col items-center"
   >
     {/* Section Header */}
     <div className="text-center mb-10 sm:mb-14 max-w-3xl px-2">
@@ -61,7 +61,7 @@ const VisionMission = () => {
   
       {/* Mission */}
       <div className="universal-card p-6 sm:p-8 relative overflow-hidden">
-        <div className="absolute -bottom-12 -left-12 w-24 h-24 sm:w-32 sm:h-32 bg-glowBlue/20 rounded-full blur-2xl sm:blur-3xl"></div>
+        {/* <div className="absolute -bottom-12 -left-12 w-24 h-24 sm:w-32 sm:h-32 bg-glowBlue/20 rounded-full blur-2xl sm:blur-3xl"></div> */}
   
         <Rocket className="w-10 h-10 sm:w-12 sm:h-12 text-blue-main mb-4" />
         <h3 className="text-xl sm:text-2xl font-semibold mb-3">Mission</h3>
@@ -79,7 +79,7 @@ const VisionMission = () => {
   
     {/* Core Values */}
     <div className="w-full max-w-6xl universal-card relative p-6 sm:p-10">
-      <div className="absolute -top-12 sm:-top-16 left-1/2 -translate-x-1/2 w-32 h-32 sm:w-48 sm:h-48 bg-glowBlue/20 rounded-full blur-2xl sm:blur-3xl"></div>
+      {/* <div className="absolute -top-12 sm:-top-16 left-1/2 -translate-x-1/2 w-32 h-32 sm:w-48 sm:h-48 bg-glowBlue/20 rounded-full blur-2xl sm:blur-3xl"></div> */}
   
       <div className="text-center mb-6 sm:mb-8 px-2">
         <Gem className="w-10 h-10 sm:w-12 sm:h-12 text-blue-main mx-auto mb-4" />

@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer id="contact" className="relative text-white py-16 px-4 sm:px-12 lg:px-20 font-[Poppins] mt-30">
       {/* Background glow */}
-      <div className="absolute top-0 left-0 w-72 h-72 bg-[#00AEEF]/20 blur-[120px] rounded-full"></div>
+      {/* <div className="absolute top-0 left-0 w-72 h-72 bg-[#00AEEF]/20 blur-[120px] rounded-full"></div> */}
 
       <div className="relative z-10 max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
         

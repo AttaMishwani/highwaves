@@ -15,7 +15,7 @@ const Navbar = () => {
 
   return (
     <header className="w-full flex pt-4 pb-2 justify-center items-center">
-      <nav className="w-[90%] shadow-[0_5px_20px_-22px_#00AEEF] bg-secondary-bg rounded-4xl px-8 py-2 flex justify-between items-center relative">
+      <nav className="w-[90%] max-w-[1200px] shadow-[0_5px_20px_-22px_#00AEEF] bg-secondary-bg rounded-4xl px-8 py-2 flex justify-between items-center relative">
         {/* Logo */}
         <div className="logo">
           <img src={logo} className="w-30" alt="Logo" />

@@ -30,7 +30,7 @@ const Testimonials = () => {
     >
       {/* Heading */}
       <div className="text-center mb-14">
-        <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#00AEEF] to-[#00C6FF] bg-clip-text text-transparent">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-main mb-3 leading-tight">
           Client Testimonials
         </h2>
 
@@ -40,7 +40,7 @@ const Testimonials = () => {
       </div>
 
       {/* Cards */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center w-full max-w-[1200px] mx-auto">
         {testimonials.map((item, index) => (
           <div
             key={index}

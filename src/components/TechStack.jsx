@@ -88,11 +88,11 @@ const TechStack = () => {
       id="tech-stack"
       className="relative py-24 px-6 md:px-12 lg:px-20 text-white"
     >
-      <div className="absolute top-0 left-0 w-64 h-64 bg-[#00AEEF]/20 blur-[100px] rounded-full"></div>
-      <div className="absolute bottom-10 right-10 w-72 h-72 bg-[#00C6FF]/20 blur-[120px] rounded-full"></div>
+      {/* <div className="absolute top-0 left-0 w-64 h-64 bg-[#00AEEF]/20 blur-[100px] rounded-full"></div> */}
+      {/* <div className="absolute bottom-10 right-10 w-72 h-72 bg-[#00C6FF]/20 blur-[120px] rounded-full"></div> */}
 
       <div className="relative z-10 text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-bold text-[#00C6FF] mb-4">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-main mb-3 leading-tight">
           Technology Stack
         </h2>
         <p className="text-gray-400 max-w-2xl mx-auto text-lg">
@@ -100,7 +100,7 @@ const TechStack = () => {
         </p>
       </div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 relative z-10">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 relative z-10 w-full max-w-[1200px] mx-auto">
         {techStack.map((item, index) => (
           <div
             key={index}

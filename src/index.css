@@ -3,7 +3,7 @@
 
 @theme {
 
-    --color-blue-main: #00C6FF;
+    --color-blue-main: #354EF0;
     --color-primary-bg: #0A0F1E;
     --color-secondary-bg: #161B2E;
     --color-card-bg: #131B2E;
@@ -12,6 +12,14 @@
     --color-text-blue: #00C6FF;
     --color-glowBlue: '0 0 20px 2px #00AEEF',
 }
+
+.bg-site {
+  background:
+    radial-gradient(900px 500px at 20% 15%, rgba(0, 198, 255, 0.18), transparent 60%),
+    radial-gradient(800px 450px at 80% 25%, rgba(0, 174, 239, 0.14), transparent 60%),
+    linear-gradient(135deg, rgba(6, 18, 32, 1) 0%, rgba(8, 30, 55, 1) 45%, rgba(4, 10, 18, 1) 100%);
+}
+
 @layer components {
     .universal-card {
       @apply bg-[#0E1625b3] border border-[#00AEEF33] p-8 rounded-2xl shadow-[0_0_25px_-10px_#00AEEF30] hover:shadow-[0_0_35px_-6px_#00AEEF70] transition-all duration-500;

@@ -18,7 +18,7 @@ const Home = () => {
         justify-center 
         items-center 
         overflow-hidden 
-        bg-primary-bg
+        
         px-4 
         sm:px-6 
         md:px-8
@@ -41,14 +41,13 @@ const Home = () => {
         className="
           relative 
           w-full 
-          max-w-[1100px] 
+          max-w-[1200px] 
           mx-auto 
           flex 
           flex-col 
           justify-center 
           items-center 
           text-center 
-          py-16
           sm:py-20
           md:py-24
         "
@@ -110,6 +109,7 @@ const Home = () => {
               transition-all 
               duration-300
               w-full
+              cursor-pointer
               sm:w-auto
               text-[clamp(0.9rem,1.8vw,1rem)]
             "
@@ -132,6 +132,7 @@ const Home = () => {
               transition-all 
               duration-300
               w-full
+              cursor-pointer
               sm:w-auto
               text-[clamp(0.9rem,1.8vw,1rem)]
             "

@@ -69,11 +69,11 @@ const Portfolio = () => {
     <section
       ref={sectionRef}
       id="portfolio"
-      className="relative py-24 px-4 sm:px-6 lg:px-20 text-white"
+      className="relative w-full py-24 px-4 sm:px-6 lg:px-20 text-white"
     >
       {/* Header */}
       <div className="text-center mb-14">
-        <h2 className="text-4xl md:text-5xl font-bold text-[#00C6FF] mb-4">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-main mb-3 leading-tight">
           Portfolio Showcase
         </h2>
         <p className="text-gray-400 max-w-2xl mx-auto text-lg">
@@ -82,7 +82,7 @@ const Portfolio = () => {
       </div>
 
       {/* Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-[1200px] w-full mx-auto">
         {projects.map((proj, index) => (
           <div
             key={index}

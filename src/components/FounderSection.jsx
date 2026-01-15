@@ -52,10 +52,7 @@ const FounderSection = () => {
     id="about"
     className="relative w-full py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-12 lg:px-20 text-white"
   >
-    {/* Glowing background orbs */}
-    <div className="absolute top-10 sm:top-20 left-0 sm:left-10 w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-[#00AEEF]/10 rounded-full blur-[100px] sm:blur-[130px]"></div>
-    <div className="absolute bottom-10 right-0 sm:right-10 w-56 sm:w-72 md:w-80 h-56 sm:h-72 md:h-80 bg-[#00C6FF]/10 rounded-full blur-[90px] sm:blur-[120px]"></div>
-  
+
     <div className="relative z-10 max-w-[1200px] w-full mx-auto">
       {/* Founder’s Message */}
       <div className="grid lg:grid-cols-2 gap-10 sm:gap-14 lg:gap-16 items-center fade-up">
