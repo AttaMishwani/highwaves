@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
-import logo from "../assets/logo/logo.png";
+import logo from "../assets/logo/logoo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
