@@ -1,5 +1,9 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Star } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const testimonials = [
   {
@@ -23,18 +27,71 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const ctx = gsap.context(() => {
+      // Animate header
+      const header = sectionRef.current.querySelector(".testimonials-header");
+      if (header) {
+        gsap.fromTo(
+          header.children,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: header,
+              start: "top 85%",
+              once: true,
+            },
+          }
+        );
+      }
+
+      // Animate testimonial cards
+      const cards = gsap.utils.toArray(".testimonial-card", sectionRef.current);
+      if (cards.length) {
+        gsap.fromTo(
+          cards,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            stagger: 0.15,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top 80%",
+              once: true,
+            },
+          }
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <section
+      ref={sectionRef}
       id="testimonials"
-      className="w-full py-20 px-6 md:px-20 text-white overflow-hidden"
+      className="w-full py-20 px-6 md:px-20 text-text-primary overflow-hidden"
     >
       {/* Heading */}
-      <div className="text-center mb-14">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-main mb-3 leading-tight">
+      <div className="testimonials-header text-center mb-14">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 leading-tight bg-gradient-to-r from-[#00AEEF] to-[#00C6FF] bg-clip-text text-transparent">
           Client Testimonials
         </h2>
 
-        <p className="text-gray-400 max-w-3xl mx-auto text-lg">
+        <p className="text-text-secondary max-w-3xl mx-auto text-lg">
           What our clients say about working with High Waves Software Solutions.
         </p>
       </div>
@@ -45,15 +102,16 @@ const Testimonials = () => {
           <div
             key={index}
             className="testimonial-card relative bg-[#0B1220]/80 backdrop-blur-md p-6 flex flex-col justify-between rounded-2xl shadow-[0_0_25px_-8px_#00C6FF]/10 hover:shadow-[0_0_40px_-8px_#00C6FF]/30 transition-all duration-500 border border-[#00C6FF]/10 max-w-md"
+            style={{ willChange: 'transform, opacity' }}
           >
-            <p className="text-gray-300 mb-6 italic leading-relaxed">
+            <p className="text-text-secondary mb-6 italic leading-relaxed">
               “{item.text}”
             </p>
 
             <div className="flex items-center justify-between">
               <div>
-                <h4 className="font-semibold text-white">{item.name}</h4>
-                <p className="text-sm text-gray-400">
+                <h4 className="font-semibold text-text-primary">{item.name}</h4>
+                <p className="text-sm text-text-secondary">
                   {item.title} — {item.location}
                 </p>
               </div>

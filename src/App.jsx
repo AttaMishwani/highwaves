@@ -15,6 +15,7 @@ import FloatingContact from "./components/FloatingContact";
 import ServicePreview from "./components/Servicepreview";
 import Lenis from "@studio-freight/lenis";
 import { useEffect } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 function App() {
    useEffect(() => {
@@ -25,6 +26,8 @@ function App() {
       smoothTouch: false,   // keep false for mobile
     });
 
+    lenis.on("scroll", ScrollTrigger.update);
+
     function raf(time) {
       lenis.raf(time);
       requestAnimationFrame(raf);
@@ -33,6 +36,7 @@ function App() {
     requestAnimationFrame(raf);
 
     return () => {
+      lenis.off("scroll", ScrollTrigger.update);
       lenis.destroy();
     };
   }, []);

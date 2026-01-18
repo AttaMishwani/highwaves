@@ -4,11 +4,18 @@ import './index.css'
 import App from './App.jsx'
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { gsap } from "gsap";
+import { ThemeProvider } from './context/ThemeContext.jsx';
+
 gsap.registerPlugin(ScrollTrigger);
 
+// Initialize theme before render
+const savedTheme = localStorage.getItem('theme') || 'dark';
+document.documentElement.classList.add(savedTheme);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
   </StrictMode>,
 )

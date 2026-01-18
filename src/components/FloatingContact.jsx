@@ -39,14 +39,14 @@ const FloatingContact = () => {
         }`}
       >
         <div className="flex items-center justify-between px-4 py-3 border-b border-white/10">
-          <div className="text-white font-semibold">Contact</div>
+          <div className="text-text-primary font-semibold">Contact</div>
           <button
             type="button"
             onClick={() => setOpen(false)}
             className="p-2 rounded-lg hover:bg-white/10 transition"
             aria-label="Close"
           >
-            <X size={18} className="text-white" />
+            <X size={18} className="text-text-primary" />
           </button>
         </div>
 
@@ -55,34 +55,34 @@ const FloatingContact = () => {
             href={waLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 w-full px-3 py-3 rounded-xl hover:bg-white/10 transition text-white"
+            className="flex items-center gap-3 w-full px-3 py-3 rounded-xl hover:bg-white/10 dark:hover:bg-white/10 transition text-text-primary"
           >
             <MessageCircle size={18} className="text-[#00C6FF]" />
             <div className="min-w-0">
               <div className="text-sm font-medium">WhatsApp</div>
-              <div className="text-xs text-gray-300">{phoneDisplay}</div>
+              <div className="text-xs text-text-secondary">{phoneDisplay}</div>
             </div>
           </a>
 
           <a
             href={`tel:${phoneIntl}`}
-            className="flex items-center gap-3 w-full px-3 py-3 rounded-xl hover:bg-white/10 transition text-white"
+            className="flex items-center gap-3 w-full px-3 py-3 rounded-xl hover:bg-white/10 dark:hover:bg-white/10 transition text-text-primary"
           >
             <Phone size={18} className="text-[#00C6FF]" />
             <div className="min-w-0">
               <div className="text-sm font-medium">Call</div>
-              <div className="text-xs text-gray-300">{phoneDisplay}</div>
+              <div className="text-xs text-text-secondary">{phoneDisplay}</div>
             </div>
           </a>
 
           <a
             href={`mailto:${email}`}
-            className="flex items-center gap-3 w-full px-3 py-3 rounded-xl hover:bg-white/10 transition text-white"
+            className="flex items-center gap-3 w-full px-3 py-3 rounded-xl hover:bg-white/10 dark:hover:bg-white/10 transition text-text-primary"
           >
             <Mail size={18} className="text-[#00C6FF]" />
             <div className="min-w-0">
               <div className="text-sm font-medium">Email</div>
-              <div className="text-xs text-gray-300 break-all">{email}</div>
+              <div className="text-xs text-text-secondary break-all">{email}</div>
             </div>
           </a>
         </div>

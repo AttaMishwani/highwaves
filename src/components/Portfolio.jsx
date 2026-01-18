@@ -48,35 +48,67 @@ const Portfolio = () => {
   const sectionRef = useRef(null);
 
   useEffect(() => {
-    gsap.fromTo(
-      ".portfolio-card",
-      { opacity: 0, y: 40 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.9,
-        stagger: 0.12,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-        },
+    if (!sectionRef.current) return;
+
+    const ctx = gsap.context(() => {
+      // Animate header
+      const header = sectionRef.current.querySelector(".portfolio-header");
+      if (header) {
+        gsap.fromTo(
+          header.children,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: header,
+              start: "top 85%",
+              once: true,
+            },
+          }
+        );
       }
-    );
+
+      const cards = gsap.utils.toArray(".portfolio-card", sectionRef.current);
+
+      if (!cards.length) return;
+
+      gsap.fromTo(
+        cards,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.9,
+          stagger: 0.12,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 80%",
+            once: true,
+          },
+        }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (
     <section
       ref={sectionRef}
       id="portfolio"
-      className="relative w-full py-24 px-4 sm:px-6 lg:px-20 text-white"
+      className="relative w-full py-24 px-4 sm:px-6 lg:px-20 text-text-primary"
     >
       {/* Header */}
-      <div className="text-center mb-14">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-main mb-3 leading-tight">
+      <div className="portfolio-header text-center mb-14">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 leading-tight bg-gradient-to-r from-[#00AEEF] to-[#00C6FF] bg-clip-text text-transparent">
           Portfolio Showcase
         </h2>
-        <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+              <p className="text-text-secondary max-w-2xl mx-auto text-lg">
           Selected projects delivered with strategy, performance, and precision.
         </p>
       </div>
@@ -86,7 +118,8 @@ const Portfolio = () => {
         {projects.map((proj, index) => (
           <div
             key={index}
-            className="universal-card"
+            className="universal-card portfolio-card"
+            style={{ willChange: 'transform, opacity' }}
           >
             {/* Image box */}
             <div className="h-52 w-full overflow-hidden ">
@@ -101,7 +134,7 @@ const Portfolio = () => {
             {/* Text below */}
             <div className="mt-5">
               <h3 className="text-xl font-semibold mb-1">{proj.name}</h3>
-              <p className="text-gray-300 text-sm mb-5">{proj.industry}</p>
+              <p className="text-text-secondary text-sm mb-5">{proj.industry}</p>
 
               {/* Button */}
               <a

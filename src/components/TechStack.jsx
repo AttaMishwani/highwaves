@@ -61,41 +61,69 @@ const TechStack = () => {
   const sectionRef = useRef(null);
 
   useEffect(() => {
-    const cards = sectionRef.current.querySelectorAll(".tech-card");
+    if (!sectionRef.current) return;
 
-    if (!cards.length) return;
-
-    gsap.fromTo(
-      cards,
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.7,
-        stagger: 0.12,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 85%",
-        },
+    const ctx = gsap.context(() => {
+      // Animate header
+      const header = sectionRef.current.querySelector(".tech-stack-header");
+      if (header) {
+        gsap.fromTo(
+          header.children,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: header,
+              start: "top 85%",
+              once: true,
+            },
+          }
+        );
       }
-    );
+
+      const cards = gsap.utils.toArray(".tech-card", sectionRef.current);
+
+      if (!cards.length) return;
+
+      gsap.fromTo(
+        cards,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          stagger: 0.12,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 85%",
+            once: true,
+          },
+        }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (
     <section
       ref={sectionRef}
       id="tech-stack"
-      className="relative py-24 px-6 md:px-12 lg:px-20 text-white"
+      className="relative py-24 px-6 md:px-12 lg:px-20 text-text-primary"
     >
       {/* <div className="absolute top-0 left-0 w-64 h-64 bg-[#00AEEF]/20 blur-[100px] rounded-full"></div> */}
       {/* <div className="absolute bottom-10 right-10 w-72 h-72 bg-[#00C6FF]/20 blur-[120px] rounded-full"></div> */}
 
-      <div className="relative z-10 text-center mb-16">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-main mb-3 leading-tight">
+      <div className="tech-stack-header relative z-10 text-center mb-16">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 leading-tight bg-gradient-to-r from-[#00AEEF] to-[#00C6FF] bg-clip-text text-transparent">
           Technology Stack
         </h2>
-        <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+        <p className="text-text-secondary max-w-2xl mx-auto text-lg">
           Our versatile technology stack enables us to deliver scalable and modern solutions.
         </p>
       </div>
@@ -105,12 +133,13 @@ const TechStack = () => {
           <div
             key={index}
             className="tech-card bg-[#0B1220]/70 border border-[#00C6FF]/20 p-6 rounded-2xl shadow-lg"
+            style={{ willChange: 'transform, opacity' }}
           >
             <div className="flex justify-center mb-4">{item.icon}</div>
             <h3 className="text-xl font-semibold text-center text-[#00C6FF] mb-2">
               {item.category}
             </h3>
-            <p className="text-gray-300 text-sm text-center">{item.tools}</p>
+            <p className="text-text-secondary text-sm text-center">{item.tools}</p>
           </div>
         ))}
       </div>

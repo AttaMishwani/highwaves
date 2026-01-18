@@ -3,10 +3,7 @@ import { Mail, Phone, MapPin, QrCode } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer id="contact" className="relative text-white py-16 px-4 sm:px-12 lg:px-20 font-[Poppins] mt-30">
-      {/* Background glow */}
-      {/* <div className="absolute top-0 left-0 w-72 h-72 bg-[#00AEEF]/20 blur-[120px] rounded-full"></div> */}
-
+    <footer id="contact" className="relative text-text-primary py-16 px-4 sm:px-12 lg:px-20 font-[Poppins] mt-30">
       <div className="relative z-10 max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
         
         {/* Contact Info */}
@@ -15,7 +12,7 @@ const Footer = () => {
             Contact Us
           </h3>
 
-          <ul className="space-y-4 text-gray-300 text-sm sm:text-base">
+          <ul className="space-y-4 text-text-secondary text-sm sm:text-base">
             <li className="flex items-start gap-3 break-words">
               <MapPin size={20} className="text-[#00C6FF] flex-shrink-0" />
               <span>Karachi, Pakistan</span>
@@ -48,7 +45,7 @@ const Footer = () => {
           <div className="mt-8 flex flex-wrap items-center gap-4 text-sm sm:text-base">
             <QrCode size={42} className="text-[#00C6FF] flex-shrink-0" />
             <div className="min-w-0 break-words">
-              <p className="text-gray-400">Scan to Connect</p>
+              <p className="text-text-secondary">Scan to Connect</p>
               <a
                 href="https://wa.me/923112103355"
                 target="_blank"
@@ -63,7 +60,7 @@ const Footer = () => {
 
         {/* Contact Form */}
         <div className="w-full">
-          <h3 className="text-xl sm:text-2xl font-semibold mb-4 text-white">
+          <h3 className="text-xl sm:text-2xl font-semibold mb-4 text-text-primary">
             Quick Message
           </h3>
 
@@ -71,19 +68,19 @@ const Footer = () => {
             <input
               type="text"
               placeholder="Your Name"
-              className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-[#00C6FF]"
+              className="w-full px-4 py-3 rounded-lg bg-white/5 dark:bg-white/5 border border-gray-300 dark:border-white/10 text-text-primary text-sm focus:outline-none focus:border-[#00C6FF]"
             />
 
             <input
               type="email"
               placeholder="Your Email"
-              className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-[#00C6FF]"
+              className="w-full px-4 py-3 rounded-lg bg-white/5 dark:bg-white/5 border border-gray-300 dark:border-white/10 text-text-primary text-sm focus:outline-none focus:border-[#00C6FF]"
             />
 
             <textarea
               rows="4"
               placeholder="Your Message"
-              className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white text-sm resize-none focus:outline-none focus:border-[#00C6FF]"
+              className="w-full px-4 py-3 rounded-lg bg-white/5 dark:bg-white/5 border border-gray-300 dark:border-white/10 text-text-primary text-sm resize-none focus:outline-none focus:border-[#00C6FF]"
             ></textarea>
 
             <button
@@ -97,7 +94,7 @@ const Footer = () => {
       </div>
 
       {/* Divider */}
-      <div className="relative z-10 border-t border-[#1a2438] mt-16 pt-6 text-center text-xs sm:text-sm text-gray-500 break-words">
+      <div className="relative z-10 border-t border-gray-200 dark:border-[#1a2438] mt-16 pt-6 text-center text-xs sm:text-sm text-text-secondary break-words">
         © 2025{" "}
         <span className="text-[#00C6FF]">
           High Waves Software Solutions

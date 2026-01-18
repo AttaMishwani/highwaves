@@ -59,7 +59,28 @@ const Services = () => {
     if (!sectionRef.current) return;
 
     const ctx = gsap.context(() => {
-      const cards = gsap.utils.toArray("[data-service-card]");
+      // Animate header
+      const header = sectionRef.current.querySelector(".services-header");
+      if (header) {
+        gsap.fromTo(
+          header.children,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: header,
+              start: "top 85%",
+              once: true,
+            },
+          }
+        );
+      }
+
+      const cards = gsap.utils.toArray("[data-service-card]", sectionRef.current);
 
       gsap.fromTo(
         cards,
@@ -86,11 +107,11 @@ const Services = () => {
     <section
       ref={sectionRef}
       id="services"
-      className="w-full py-16 md:py-20 text-white flex flex-col items-center"
+      className="w-full py-16 md:py-20 text-text-primary flex flex-col items-center"
     >
       {/* Header */}
-      <div className="text-center max-w-2xl mb-10 px-4">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-main mb-3 leading-tight">
+      <div className="services-header text-center max-w-2xl mb-10 px-4">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 leading-tight bg-gradient-to-r from-[#00AEEF] to-[#00C6FF] bg-clip-text text-transparent">
           Our Services
         </h2>
         <p className="text-text-secondary text-base sm:text-lg">
