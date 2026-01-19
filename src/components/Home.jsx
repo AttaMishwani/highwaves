@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { Sparkles, Rocket, Code2, Globe, Zap, Star, TrendingUp, Award, Users } from "lucide-react";
+import { scrollTo } from "../lenis";
 
 const Home = () => {
   const heroContentRef = useRef(null);
@@ -284,6 +285,10 @@ const Home = () => {
           "
         >
         <button
+         onClick={() =>{
+
+    scrollTo("#contact")
+ }}
   className="
     relative overflow-hidden
     bg-blue-main 
@@ -322,6 +327,12 @@ const Home = () => {
 </button>
 
 <button
+
+ onClick={() =>{
+   
+    scrollTo("#portfolio")
+ }}
+
   className="
     relative
     border 
@@ -342,7 +353,7 @@ const Home = () => {
   "
 >
   {/* underline animation */}
-  <span
+  <span  
     className="
       absolute left-1/2 -bottom-[2px]
       h-[2px] w-0

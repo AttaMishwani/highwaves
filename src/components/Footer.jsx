@@ -95,7 +95,7 @@ const Footer = () => {
 
       {/* Divider */}
       <div className="relative z-10 border-t border-gray-200 dark:border-[#1a2438] mt-16 pt-6 text-center text-xs sm:text-sm text-text-secondary break-words">
-        © 2025{" "}
+        © 2026{" "}
         <span className="text-[#00C6FF]">
           High Waves Software Solutions
         </span>{" "}

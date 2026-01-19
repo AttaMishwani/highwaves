@@ -13,40 +13,59 @@ import TechStack from "./components/TechStack";
 import GlobalReach from "./components/GlobalReach";
 import FloatingContact from "./components/FloatingContact";
 import ServicePreview from "./components/Servicepreview";
+
 import Lenis from "@studio-freight/lenis";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+
+import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { setLenis } from "./lenis";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function App() {
-   useEffect(() => {
+  const rafIdRef = useRef(null);
+
+  useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2,        // scroll speed
+      duration: 1.1,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      smoothTouch: false,   // keep false for mobile
+      smoothTouch: false,
+      wheelMultiplier: 1,
     });
 
-    lenis.on("scroll", ScrollTrigger.update);
+    setLenis(lenis);
 
-    function raf(time) {
+    const onLenisScroll = () => ScrollTrigger.update();
+    lenis.on("scroll", onLenisScroll);
+
+    const raf = (time) => {
       lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
+      rafIdRef.current = requestAnimationFrame(raf);
+    };
 
-    requestAnimationFrame(raf);
+    rafIdRef.current = requestAnimationFrame(raf);
+
+    requestAnimationFrame(() => {
+      ScrollTrigger.refresh();
+    });
 
     return () => {
-      lenis.off("scroll", ScrollTrigger.update);
+      if (rafIdRef.current) cancelAnimationFrame(rafIdRef.current);
+      lenis.off("scroll", onLenisScroll);
       lenis.destroy();
+      setLenis(null);
     };
   }, []);
+
   return (
-    <main className="bg-site w-full h-full">
+    <main className="bg-site w-full min-h-screen">
       <Navbar />
       <Home />
       <FounderSection />
       <VisionMission />
-      <ServicePreview/>
+      <ServicePreview />
       <Services />
       <Portfolio />
       <TechStack />
@@ -54,7 +73,7 @@ function App() {
       <WhyChooseUs />
       <GlobalReach />
       <Footer />
-      <FloatingContact/>
+      <FloatingContact />
     </main>
   );
 }
