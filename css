@@ -28,10 +28,10 @@
 /* Light Mode */
 :root.light {
   --color-blue-main: #0077BE;
-  --color-primary-bg: #F8F9FA;
+  --color-primary-bg: #F5F7FA;
   --color-secondary-bg: #FFFFFF;
   --color-card-bg: #FFFFFF;
-  --color-text-primary: #2E2E2E;
+  --color-text-primary: #1A1A1A;
   --color-text-secondary: #4A5568;
   --color-text-blue: #0077BE;
 }
