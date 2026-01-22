@@ -2,6 +2,10 @@ import React, { useEffect, useRef } from "react";
 import { ExternalLink } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import portfolio from "../assets/portfolio/portfolio.webp"
+import portfolio2 from "../assets/portfolio/portfolio2.webp"
+import portfolio3 from "../assets/portfolio/portfolio3.webp"
+import portfolio4 from "../assets/portfolio/portfolio4.webp"
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -9,37 +13,37 @@ const projects = [
   {
     name: "Syeed & Sons",
     industry: "Textile Export & Manufacturing",
-    image: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c",
+    image: portfolio,
     link: "https://syeedandsons.com",
   },
   {
     name: "Pak Safety Academy",
     industry: "Occupational Safety & Industrial Training",
-    image: "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1",
+    image: portfolio2,
     link: "https://paksafetyacademy.com",
   },
   {
     name: "Any Landscaping",
     industry: "Landscape Design & Maintenance",
-    image: "https://images.unsplash.com/photo-1592928302636-c83cf1e1c887",
+    image: portfolio3,
     link: "https://anylandscaping.com",
   },
   {
     name: "Digitora",
     industry: "Digital Marketing & Branding Agency",
-    image: "https://images.unsplash.com/photo-1556761175-4b46a572b786",
+    image: portfolio4,
     link: "https://digitora.site",
   },
   {
     name: "KC Premier Living",
     industry: "Real Estate & Property Management",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    image: portfolio,
     link: "https://kcpremierliving.com",
   },
   {
     name: "Finance Centre",
     industry: "Financial Consultancy & Services",
-    image: "https://images.unsplash.com/photo-1521791136064-7986c2920216",
+    image: portfolio2,
     link: "https://financecentre.us",
   },
 ];
